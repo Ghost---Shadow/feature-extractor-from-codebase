@@ -41,7 +41,7 @@ lut_misses = set()
 
 def get_all_imports(lines):
     filter_op = filter(lambda line: line.startswith('import '), lines)
-    map_op = map(lambda line: line.split(' ')[1].split(';')[0], filter_op)
+    map_op = map(lambda line: line.replace(' static ',' ').split(' ')[1].split(';')[0], filter_op)
     return set(map_op)
 
 def get_lines_from_file(filename):
